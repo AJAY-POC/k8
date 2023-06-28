@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: vivantapp-service
+spec:
+  ports:
+  - port: 50005
+    nodePort: 50005
+    targetPort: vivantapp-port
+    protocol: TCP
+  selector:
+    app: vivantapp
+  type: NodePort
