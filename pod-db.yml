@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: vivantdb
+  labels:
+    app: vivantdb
+spec:
+  selector:
+    matchLabels:
+      app: vivantdb
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: vivantdb
+    spec:
+      containers:
+      - name: vivantdb
+        image: neverloosejay/database:latest
+        ports:
+        - name: vivantdb-port
+          containerPort: 3306
+        env:
+        - name: MYSQL_ROOT_PASSWORD
+          value: "vivantpass"
