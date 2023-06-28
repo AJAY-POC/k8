@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: vivant-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: vivantapp
+  template:
+    metadata:
+      labels:
+        app: vivantapp
+    spec:
+      containers:
+      - name: vivantapp
+        image: neverloosejay/myapp:latest
+        ports:
+        - name: vivantapp-port
+          containerPort: 8080
